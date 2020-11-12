@@ -75,7 +75,12 @@ a{
     cursor: pointer;
     transition: 0.2s;
 }
-
+.section-2 p:hover{
+    font-size: 1.09rem;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.2s;
+}
 .section-1 a:hover{
     color: #fff;
     cursor: pointer;
