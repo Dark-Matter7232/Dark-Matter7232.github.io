@@ -193,7 +193,9 @@ samp {
   background: #202222;
   color: var(--foreground);
 }
-
+.main{
+  text-align: center;
+}
 .sourceCode > code {
   padding: 0;
 }
