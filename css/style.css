@@ -561,7 +561,7 @@ hr {
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 60%;
+  width: 100%;
 }
 
 td, th {
