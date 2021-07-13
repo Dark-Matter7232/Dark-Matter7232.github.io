@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" type="image/png" href="favicon.ico">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <title>Dark-Matter7232</title>
+<meta property="og:title" content="The Cosmic Staff Kernel" />
+      <meta property="og:description" content="The Cosmic Staff kernel for M21, for personal use." />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content="/posts/TheCosmicStaff" />
+      <meta property="og:image" content="https://anuragcodes.me/cosmic.jpg" />
+
+</head>
+
+<h1 class="main-header">Dark-Matter7232</h1>
+<nav>
+  <a href="/index">Home</a>
+  <a href="/about">About</a>
+  <a href="https://p.anuragcodes.me">Paste</a>
+  <a href="/archive">Archive</a>
+  <a href="/uses">Uses</a>
+</nav>
+
+<article>
+<h2 id="thecosmicstaff-kernel">TheCosmicStaff Kernel</h2>
+<center>
+<img src="img/cosmic.jpg">
+</center>
+<h2 id="features">Features:</h2>
+<ul>
+<li>Introduce SchedTune Assist</li>
+<li>Introduce DSBoost driver</li>
+<li>Introduce devfreq boost driver</li>
+<li>Optimized Console FrameBuffer</li>
+<li>Boost DDR bus</li>
+<li>increase limit on sched-tune boost groups</li>
+<li>Undervolt the whole soc</li>
+<li>Enable westwood tcp algo</li>
+<li>100HZ timer</li>
+<li>Boeffla Wakelock blocker</li>
+<li>ARM64 targeted optimizations</li>
+<li>IO_STAT disabled out of the box</li>
+<li>Kill unwated google services</li>
+<li>Disable Audit treewide</li>
+<li>Make use of cacheline alignment</li>
+<li>Make workqueue high priority</li>
+<li>Tweak cpuidle governor for better battery life</li>
+<li>3x faster integer sqrt</li>
+<li>Enable Write Back Caching</li>
+<li>Enable I/O throttling</li>
+</ul>
+<h3 id="changelog">Changelog:</h3>
+<p>R2 * Fix error “There’s an internal problem with your system” * Enable Write Back Caching (improve flash storage lifespan) * Don’t fail on wakeup (do not let userspace abuse alarmtimers) * Reduce the opportunity for sleepers to preempt (reduce jitter) * Enable I/O throttling (reduce latency) * Introduce SchedTune Assist (faster app launches and power efficiency) * Introduce DSBoost driver(smoother experience and lowered jank) * Introduce devfreq boost driver (butter smooth UI experience, no frame-drops) * Optimized Console FrameBuffer for upto 70% increase in Performance * Boost DDR bus upon running an atomic ioctl (prevent any and all framedrops) * increase limit on sched-tune boost groups * Undervolt the whole soc (lowered power usage) * Process new forks before processing their parent (improve app launch speed) * apply boost before frames are updated * enable westwood (lowered network latency and better speeds) * Prefer to reclaim inode and dentry cache over pagecache * Increase ratelimit pages value (reduce overhead)</p>
+<details>
+<summary>
+R1:
+</summary>
+<p>
+<ul>
+<li>
+Tweak cpuidle governor to enter deep C state faster(better battery life)
+</li>
+<li>
+set frequency of kernel interrupt to 100hz(noticeable battery life improvement)
+</li>
+<li>
+Add boeffla Wakelock blocker
+</li>
+<li>
+Disable debugging in binder(lowered latency)
+</li>
+<li>
+Improve 3x faster integer sqrt
+</li>
+<li>
+disable IO_STAT completely(IO speed improvement)
+</li>
+<li>
+ARM64 targeted optimizations
+</li>
+<li>
+Make workqueue high priority(Decrease delays under pressure)
+</li>
+<li>
+cacheline alignment(Performance benefit)
+</li>
+<li>
+Don’t let google crap run in the background(batter battery life)
+</li>
+<li>
+Make zsmalloc copy rather than mapping pages(performance improvement)
+</li>
+<li>
+Disable audit
+</li>
+<li>
+Disable auditing for selinux
+</li>
+</ul>
+</p>
+</details>
+<h4 id="note">Note:</h4>
+<p><strong>I built it for my personal use only, my goals were to achieve better efficiency and not performance</strong></p>
+<hr>
+<script src="https://utteranc.es/client.js"
+        repo="Dark-Matter7232/Dark-Matter7232.github.io"
+        issue-term="pathname"
+        theme="github-dark-orange"
+        crossorigin="anonymous"
+        async>
+</script>
+</article>
+
+<footer>
+  <hr>
+  <i class="far fa-copyright"></i> 2021 </p>
+</footer>
+</body>
