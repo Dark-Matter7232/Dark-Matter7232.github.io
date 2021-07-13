@@ -28,9 +28,9 @@
 <article>
 <h2 id="thecosmicstaff-kernel">TheCosmicStaff Kernel</h2>
 <center>
-<img src="img/cosmic.jpg">
+<img src="https://raw.githubusercontent.com/Dark-Matter7232/Dark-Matter7232.github.io/v2/img/cosmic.jpg">
 </center>
-<h2 id="features">Features:</h2>
+<h2 id="features">Features</h2>
 <ul>
 <li>Introduce SchedTune Assist</li>
 <li>Introduce DSBoost driver</li>
@@ -53,8 +53,43 @@
 <li>Enable Write Back Caching</li>
 <li>Enable I/O throttling</li>
 </ul>
-<h3 id="changelog">Changelog:</h3>
-<p>R2 * Fix error “There’s an internal problem with your system” * Enable Write Back Caching (improve flash storage lifespan) * Don’t fail on wakeup (do not let userspace abuse alarmtimers) * Reduce the opportunity for sleepers to preempt (reduce jitter) * Enable I/O throttling (reduce latency) * Introduce SchedTune Assist (faster app launches and power efficiency) * Introduce DSBoost driver(smoother experience and lowered jank) * Introduce devfreq boost driver (butter smooth UI experience, no frame-drops) * Optimized Console FrameBuffer for upto 70% increase in Performance * Boost DDR bus upon running an atomic ioctl (prevent any and all framedrops) * increase limit on sched-tune boost groups * Undervolt the whole soc (lowered power usage) * Process new forks before processing their parent (improve app launch speed) * apply boost before frames are updated * enable westwood (lowered network latency and better speeds) * Prefer to reclaim inode and dentry cache over pagecache * Increase ratelimit pages value (reduce overhead)</p>
+<h3 id="changelog">Changelog</h3>
+<p>R2:</p>
+<ul>
+<li>Fix error “There’s an internal problem with your system”<br />
+</li>
+<li>Enable Write Back Caching (improve flash storage lifespan)<br />
+</li>
+<li>Don’t fail on wakeup (do not let userspace abuse alarmtimers)<br />
+</li>
+<li>Reduce the opportunity for sleepers to preempt (reduce jitter)<br />
+</li>
+<li>Enable I/O throttling (reduce latency)<br />
+</li>
+<li>Introduce SchedTune Assist (faster app launches and power efficiency)<br />
+</li>
+<li>Introduce DSBoost driver(smoother experience and lowered jank)<br />
+</li>
+<li>Introduce devfreq boost driver (butter smooth UI experience, no frame-drops)<br />
+</li>
+<li>Optimized Console FrameBuffer for upto 70% increase in Performance<br />
+</li>
+<li>Boost DDR bus upon running an atomic ioctl (prevent any and all framedrops)<br />
+</li>
+<li>increase limit on sched-tune boost groups<br />
+</li>
+<li>Undervolt the whole soc (lowered power usage)<br />
+</li>
+<li>Process new forks before processing their parent (improve app launch speed)<br />
+</li>
+<li>apply boost before frames are updated<br />
+</li>
+<li>enable westwood (lowered network latency and better speeds)<br />
+</li>
+<li>Prefer to reclaim inode and dentry cache over pagecache<br />
+</li>
+<li>Increase ratelimit pages value (reduce overhead)</li>
+</ul>
 <details>
 <summary>
 R1:
@@ -103,7 +138,7 @@ Disable auditing for selinux
 </ul>
 </p>
 </details>
-<h4 id="note">Note:</h4>
+<h4 id="note">Note</h4>
 <p><strong>I built it for my personal use only, my goals were to achieve better efficiency and not performance</strong></p>
 <hr>
 <script src="https://utteranc.es/client.js"
