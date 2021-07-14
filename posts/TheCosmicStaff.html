@@ -32,15 +32,12 @@
 </center>
 <h2 id="features">Features</h2>
 <ul>
-<li>Introduce SchedTune Assist</li>
-<li>Introduce DSBoost driver</li>
 <li>Introduce devfreq boost driver</li>
 <li>Optimized Console FrameBuffer</li>
 <li>Boost DDR bus</li>
 <li>increase limit on sched-tune boost groups</li>
-<li>Undervolt the whole soc</li>
 <li>Enable westwood tcp algo</li>
-<li>100HZ timer</li>
+<li>300HZ timer</li>
 <li>Boeffla Wakelock blocker</li>
 <li>ARM64 targeted optimizations</li>
 <li>IO_STAT disabled out of the box</li>
@@ -52,43 +49,108 @@
 <li>3x faster integer sqrt</li>
 <li>Enable Write Back Caching</li>
 <li>Enable I/O throttling</li>
+<li>Use -O3 optimization</li>
+<li>disable crc checks (30% IO speed improvement)</li>
+<li>set dirty ratio to 40%</li>
+<li>add NEON accelerated XOR implementation</li>
 </ul>
 <h3 id="changelog">Changelog</h3>
-<p>R2:</p>
+<p>R3:</p>
 <ul>
-<li>Fix error “There’s an internal problem with your system”<br />
+<li>drop Schedtune assist</li>
+<li>drop dsboost</li>
+<li>revert undervoltinh</li>
+<li>set timer 300hz</li>
+<li>Boost DDR bus for a short amount of time when zygote forks (faster app launches)</li>
+<li>Use -O3 optimization (slight performance improvement)</li>
+<li>branch optimization in free slowpath</li>
+<li>Align file struct to 8 bytes</li>
+<li>disable crc checks (30% IO speed improvement)</li>
+<li>optimize modulo operation</li>
+<li>set initial TCP window size to 64K (speed improvement)</li>
+<li>use power efficient workingqueues</li>
+<li>add NEON accelerated XOR implementation</li>
+<li>set dirty ratio to 40%</li>
+<li>Increase vmstat interval</li>
+<li>swap pages one at a time (help with extreme memory pressure scenarios)</li>
+</ul>
+<details>
+<summary>
+R2:
+</summary>
+<pu>
+<ul>
+<li>
+*Fix error “There’s an internal problem with your system”
 </li>
-<li>Enable Write Back Caching (improve flash storage lifespan)<br />
+<li>
+<ul>
+<li>Enable Write Back Caching (improve flash storage lifespan)
 </li>
-<li>Don’t fail on wakeup (do not let userspace abuse alarmtimers)<br />
+<li>
+*Don’t fail on wakeup (do not let userspace abuse alarmtimers)
 </li>
-<li>Reduce the opportunity for sleepers to preempt (reduce jitter)<br />
+<li>
+<ul>
+<li>Reduce the opportunity for sleepers to preempt (reduce jitter)
 </li>
-<li>Enable I/O throttling (reduce latency)<br />
+<li>
+*Enable I/O throttling (reduce latency)
 </li>
-<li>Introduce SchedTune Assist (faster app launches and power efficiency)<br />
+<li>
+<ul>
+<li>Introduce SchedTune Assist (faster app launches and power efficiency)
 </li>
-<li>Introduce DSBoost driver(smoother experience and lowered jank)<br />
+<li>
+*Introduce DSBoost driver(smoother experience and lowered jank)
 </li>
-<li>Introduce devfreq boost driver (butter smooth UI experience, no frame-drops)<br />
+<li>
+<ul>
+<li>Introduce devfreq boost driver (butter smooth UI experience, no frame-drops)
 </li>
-<li>Optimized Console FrameBuffer for upto 70% increase in Performance<br />
+<li>
+*Optimized Console FrameBuffer for upto 70% increase in Performance
 </li>
-<li>Boost DDR bus upon running an atomic ioctl (prevent any and all framedrops)<br />
+<li>
+<ul>
+<li>Boost DDR bus upon running an atomic ioctl (prevent any and all framedrops)
 </li>
-<li>increase limit on sched-tune boost groups<br />
+<li>
+*increase limit on sched-tune boost groups
 </li>
-<li>Undervolt the whole soc (lowered power usage)<br />
+<li>
+<ul>
+<li>Undervolt the whole soc (lowered power usage)
 </li>
-<li>Process new forks before processing their parent (improve app launch speed)<br />
+<li>
+*Process new forks before processing their parent (improve app launch speed)
 </li>
-<li>apply boost before frames are updated<br />
+<li>
+<ul>
+<li>apply boost before frames are updated
 </li>
-<li>enable westwood (lowered network latency and better speeds)<br />
+<li>
+*enable westwood (lowered network latency and better speeds)
 </li>
-<li>Prefer to reclaim inode and dentry cache over pagecache<br />
+<li>
+<ul>
+<li>Prefer to reclaim inode and dentry cache over pagecache
 </li>
-<li>Increase ratelimit pages value (reduce overhead)</li>
+<li>
+<ul>
+<li>Increase ratelimit pages value (reduce overhead)
+</li>
+</ul>
+</p>
+</details></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
 </ul>
 <details>
 <summary>
@@ -141,7 +203,7 @@ Disable auditing for selinux
 <hr>
 <h3 id="downlods">Downlods</h3>
 <ul>
-<li><strong>TheCosmicStaff-R2</strong> - <a href="https://github.com/Dark-Matter7232/The-Cosmic-Staff/releases/download/R2/CosmicStaff-ONEUI-R2-M21.zip">Download</a></li>
+<li><strong>TheCosmicStaff-R2</strong> - <a href="https://github.com/Dark-Matter7232/The-Cosmic-Staff/releases/download/R3/CosmicStaff-ONEUI-R3-M21.zip">Download</a></li>
 </ul>
 <h3 id="sources">Sources</h3>
 <ul>
