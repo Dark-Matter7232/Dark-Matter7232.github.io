@@ -55,30 +55,112 @@
 <li>add NEON accelerated XOR implementation</li>
 </ul>
 <h3 id="changelog">Changelog</h3>
-<p>R3:</p>
+<p>R4-noboost:</p>
 <ul>
-<li>drop Schedtune assist</li>
-<li>drop dsboost</li>
-<li>revert undervoltinh</li>
-<li>set timer 300hz</li>
-<li>Boost DDR bus for a short amount of time when zygote forks (faster app launches)</li>
-<li>Use -O3 optimization (slight performance improvement)</li>
-<li>branch optimization in free slowpath</li>
-<li>Align file struct to 8 bytes</li>
-<li>disable crc checks (30% IO speed improvement)</li>
-<li>optimize modulo operation</li>
-<li>set initial TCP window size to 64K (speed improvement)</li>
-<li>use power efficient workingqueues</li>
-<li>add NEON accelerated XOR implementation</li>
-<li>set dirty ratio to 40%</li>
-<li>Increase vmstat interval</li>
-<li>swap pages one at a time (help with extreme memory pressure scenarios)</li>
+<li>Introduce SchedTune Assist (500% improvement in User experience at minimal cost of battery life)</li>
+<li>Increase the time a task is considered cache-hot (Performance gain)</li>
+<li>Queue requests on their origin CPU (20%-40% gain in some scenarios)</li>
+<li>Do not give sleepers 50% more runtime</li>
+<li>Do not wake idle CPUs to queue same-origin requests (noticeable battery life improvement)</li>
+<li>Do not use IPIs for remote wakeups if idle</li>
+<li>Allow aggressive remote task interruptions</li>
+<li>Do not collect I/O statistics</li>
+<li>Don’t allow userspace to impose restrictions on CPU idle levels (No more random performance drops)</li>
+<li>Implement optimised checksum routine (Peformance gain)</li>
+<li>Network Stack optimizations</li>
+<li>Don’t hog RCU read lock while optimistically spinning</li>
+<li>Speed up ioctl by omitting debug names (overall graphics performance boost)</li>
+<li>optimized memcpy (Performance gain)</li>
+<li>optimized memmove (Performance gain)</li>
+<li>optimized memset (Performance gain)</li>
+<li>Enable BPF JIT (Faster settings activities launch)</li>
+<li>Update default wakelock block list (Better battery life)</li>
+<li>Enable wireguard (add wireguard support for those who might need it)</li>
 </ul>
+<p>R4-boost:</p>
+<ul>
+<li>Don’t allow userspace to impose restrictions on CPU idle levels (No more random performance drops)</li>
+<li>Implement optimised checksum routine (Peformance gain)</li>
+<li>Network Stack optimizations</li>
+<li>Don’t hog RCU read lock while optimistically spinning</li>
+<li>Speed up ioctl by omitting debug names (overall graphics performance boost)</li>
+<li>optimized memcpy (Performance gain)</li>
+<li>optimized memmove (Performance gain)</li>
+<li>optimized memset (Performance gain)</li>
+<li>Enable BPF JIT (Faster settings activities launch)</li>
+<li>Update default wakelock block list (Better battery life)</li>
+<li>update boost freq (less heating)</li>
+<li>Change default SCHED_RR timeslice from 100 ms to 1 jiffy</li>
+<li>Use SCHED_RR in place of SCHED_FIFO for all users (lowered latency)</li>
+<li>Micro-optimize PID map reads for arm64 while retaining output format (Should help with certain big games)</li>
+<li>Free dead tasks asynchronously in finish_task_switch() (Performance gain)</li>
+<li>Avoid allocating small buffers for map keys and values</li>
+<li>Avoid dynamic memory allocation for small write buffers (avoid overhead)</li>
+<li>Reduce latency while processing atomic ioctls (lowered latency)</li>
+<li>Enable wireguard (add wireguard support for those who might need it)</li>
+</ul>
+<details>
+<summary>
+R3:
+</summary>
+<p>
+<ul>
+<li>
+drop Schedtune assist
+</li>
+<li>
+drop dsboost
+</li>
+<li>
+revert undervolting
+</li>
+<li>
+set timer 300hz
+</li>
+<li>
+Boost DDR bus for a short amount of time when zygote forks (faster app launches)
+</li>
+<li>
+Use -O3 optimization (slight performance improvement)
+</li>
+<li>
+branch optimization in free slowpath
+</li>
+<li>
+Align file struct to 8 bytes
+</li>
+<li>
+disable crc checks (30% IO speed improvement)
+</li>
+<li>
+optimize modulo operation
+</li>
+<li>
+set initial TCP window size to 64K (speed improvement)
+</li>
+<li>
+use power efficient workingqueues
+</li>
+<li>
+add NEON accelerated XOR implementation
+</li>
+<li>
+set dirty ratio to 40%
+</li>
+<li>
+Increase vmstat interval
+</li>
+<li>
+swap pages one at a time (help with extreme memory pressure scenarios)
+</li>
+</ul>
+</p>
+</details>
 <details>
 <summary>
 R2:
 </summary>
-<pu>
+<p>
 <ul>
 <li>
 Fix error “There’s an internal problem with your system”
@@ -185,8 +267,8 @@ Disable auditing for selinux
 <hr>
 <h3 id="downlods">Downlods</h3>
 <ul>
-<li><strong>TheCosmicStaff-R3-noboost</strong> - <a href="https://github.com/Dark-Matter7232/The-Cosmic-Staff/releases/download/R3/CosmicStaff-ONEUI-R3-noboost-M21.zip">Download</a></li>
-<li><strong>TheCosmicStaff-R3-boost</strong> - <a href="https://github.com/Dark-Matter7232/The-Cosmic-Staff/releases/download/R3/CosmicStaff-ONEUI-R3-M21.zip">Download</a></li>
+<li><strong>TheCosmicStaff-R4-noboost</strong> - <a href="https://github.com/Dark-Matter7232/The-Cosmic-Staff/releases/download/R4/CosmicStaff-ONEUI-R4-noboost-M21.zip">Download</a></li>
+<li><strong>TheCosmicStaff-R4-boost</strong> - <a href="https://github.com/Dark-Matter7232/The-Cosmic-Staff/releases/download/R4/CosmicStaff-ONEUI-R4-M21.zip">Download</a></li>
 </ul>
 <h3 id="sources">Sources</h3>
 <ul>
