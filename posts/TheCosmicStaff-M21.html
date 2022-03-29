@@ -9,7 +9,7 @@
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <script src="https://kit.fontawesome.com/6973571aae.js" crossorigin="anonymous"></script>
   <title>Const Coccinelle</title>
-<meta property="og:title" content="The Cosmic Staff Kernel For M21" />
+<meta property="og:title" content="The Cosmic Staff Kernel" />
       <meta property="og:description" content="The Cosmic Staff kernel for M21, for personal use." />
       <meta property="og:type" content="article" />
       <meta property="og:url" content="/posts/TheCosmicStaff-M21" />
@@ -31,7 +31,19 @@
 <center>
 <img src="https://raw.githubusercontent.com/Dark-Matter7232/Dark-Matter7232.github.io/v2/img/cosmic.jpg">
 </center>
-<h2 id="features">Features</h2>
+<details>
+<p><summary>CONTENTS</summary></p>
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#changelog">Changelog</a></li>
+<li><a href="#instructions">Flashing intstrcutions</a></li>
+<li><a href="#downloads">Downlod links</a></li>
+<li><a href="#sources">Source code</a></li>
+<li><a href="#notes">Final Note</a></li>
+</ul>
+</details>
+<h2 id="features">Features <a name="features"></a></h2>
+<details>
 <ul>
 <li>Introduce Dynamic SchedTune Boost</li>
 <li>Introduce SchedTuneAssist</li>
@@ -69,7 +81,9 @@
 <li>set dirty ratio to 40%</li>
 <li>add NEON accelerated XOR implementation</li>
 </ul>
-<h3 id="changelog">Changelog</h3>
+</details>
+<h3 id="changelog">Changelog <a name="changelog"></a></h3>
+<details>
 <p>R6:</p>
 <ul>
 <li>Introduce CPUSetsAssist</li>
@@ -530,24 +544,25 @@ Disable auditing for selinux
 </ul>
 </p>
 </details>
+</details>
 <hr>
-<h3 id="flashing-intstrcutions">Flashing intstrcutions</h3>
+<h3 id="flashing-intstrcutions">Flashing intstrcutions <a name="instructions"></a></h3>
 <ul>
 <li>Flash <code>Disable-userspace-slmk</code> module using magisk manager</li>
 <li>Reboot to recovery</li>
 <li>Flash the kernel</li>
 <li>Enjoy</li>
 </ul>
-<h3 id="downlods">Downlods</h3>
+<h3 id="downlods">Downlods <a name="downloads"></a></h3>
 <ul>
 <li><strong>TheCosmicStaff-R6-M21</strong> - <a href="https://github.com/Dark-Matter7232/The-Cosmic-Staff/releases/download/R6/CosmicStaff-ONEUI-R6-M21.zip">Download</a></li>
 <li><strong>Disable-userspace-slmk</strong> - <a href="https://github.com/Dark-Matter7232/The-Cosmic-Staff/releases/download/R6/Disable-userspace-slmk.zip">Download</a></li>
 </ul>
-<h3 id="sources">Sources</h3>
+<h3 id="sources">Sources <a name="sources"></a></h3>
 <ul>
 <li><strong>Kernel source</strong> - <a href="https://github.com/Dark-Matter7232/The-Cosmic-Staff">Click here</a></li>
 </ul>
-<h4 id="note">Note</h4>
+<h4 id="note">Note <a name="notes"></a></h4>
 <p><strong>I built it for my personal use only, my goals were to achieve better efficiency and not performance</strong></p>
 <hr>
 <script src="https://utteranc.es/client.js"
@@ -558,6 +573,12 @@ Disable auditing for selinux
         async>
 </script>
 </article>
+
+<p id="lastUpdated-css">Updated on <span id="lastUpdated"></span></p>
+
+<script>
+  document.getElementById("lastUpdated").innerHTML = document.lastModified;
+</script>
 
 <footer>
   <hr>
