@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" type="image/png" href="favicon.ico">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <script src="https://kit.fontawesome.com/6973571aae.js" crossorigin="anonymous"></script>
+  <title>Const Coccinelle</title>
+<meta property="og:title" content="The Cosmic Staff Kernel" />
+      <meta property="og:description" content="The Cosmic Staff kernel for M21, for personal use." />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content="/posts/TheCosmicStaff-M21" />
+      <meta property="og:image" content="https://dark-matter7232.github.io/cosmic.jpg" />
+
+</head>
+
+<h1 class="main-header">Const Coccinelle</h1>
+<nav>
+  <a href="/index"> <i class="fa-solid fa-user-astronaut"></i> Home</a>
+  <a href="/about"> <i class="fa-solid fa-qrcode"></i> About</a>
+  <!-- <a href="https://p.anuragcodes.me">Paste</a> -->
+  <a href="/archive"> <i class="fa-solid fa-box-archive"></i> Archive</a>
+  <a href="/uses"> <i class="fa-solid fa-microchip"></i> Uses</a>
+</nav>
+
+<article>
+<h2 id="thecosmicstaff-kernel-for-m21">TheCosmicStaff Kernel For M21</h2>
+<center>
+<img src="https://raw.githubusercontent.com/Dark-Matter7232/Dark-Matter7232.github.io/v2/img/cosmic.jpg">
+</center>
+<details>
+<summary>
+CONTENTS
+</summary>
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#changelog">Changelog</a></li>
+<li><a href="#instructions">Flashing intstrcutions</a></li>
+<li><a href="#downloads">Downlod links</a></li>
+<li><a href="#sources">Source code</a></li>
+<li><a href="#notes">Final Note</a></li>
+</ul>
+</details>
+<h2 id="features">Features <a name="features"></a></h2>
+<details>
+<ul>
+<li>Introduce Dynamic SchedTune Boost</li>
+<li>Introduce SchedTuneAssist</li>
+<li>Introduce CPUSetsAssist</li>
+<li>ThinLTO</li>
+<li>Sultan’s Simple Low Memory Killer</li>
+<li>BBR Tcp congenstion algorithm</li>
+<li>fq_codal network scheduler(qdisc)</li>
+<li>Enable powerefficient workqueues OOTB</li>
+<li>Add PowerSuspend Driver</li>
+<li>Built with Dead code elimination enabled</li>
+<li>Enabled BLK cgroup IO throttling</li>
+<li>Silence unwanted logging</li>
+<li>Enabled Gentle Fair Sleepers</li>
+<li>Affine important userspace components to arm Big cores</li>
+<li>Introduce Srandom</li>
+<li>Sched imrpovements</li>
+<li>UFS IO improvement</li>
+<li>Grahpics Perf improvement</li>
+<li>Power Efficiency improvement</li>
+<li>Optimized Console FrameBuffer</li>
+<li>100HZ timer</li>
+<li>Boeffla Wakelock blocker</li>
+<li>ARM64 targeted optimizations</li>
+<li>IO_STAT disabled out of the box</li>
+<li>Kill unwated google services</li>
+<li>Disable Audit treewide</li>
+<li>Make use of cacheline alignment</li>
+<li>Make workqueue high priority</li>
+<li>Tweak cpuidle governor for better battery life</li>
+<li>3x faster integer sqrt</li>
+<li>Enable Write Back Caching</li>
+<li>Enable I/O throttling</li>
+<li>disable crc checks (30% IO speed improvement)</li>
+<li>set dirty ratio to 40%</li>
+<li>add NEON accelerated XOR implementation</li>
+</ul>
+</details>
+<h3 id="changelog">Changelog <a name="changelog"></a></h3>
+<details>
+<p>R6:</p>
+<ul>
+<li>Introduce CPUSetsAssist</li>
+<li>ThinLTO (perf improvement)</li>
+<li>Introduce Sultan’s Simple Low Memory Killer</li>
+<li>BBR Tcp congenstion algorithm</li>
+<li>fq_codal network scheduler(qdisc)</li>
+<li>Enable powerefficient workqueues OOTB</li>
+<li>Add PowerSuspend Driver (almost eliminate idle battery drain)</li>
+<li>Built with Dead code elimination enabled</li>
+<li>Enabled BLK cgroup IO throttling</li>
+<li>Silence unwanted logging</li>
+<li>Enabled Gentle Fair Sleepers</li>
+<li>Affine hwcomposer to big CPUs (lowered jitter)</li>
+<li>Affine surfaceflinger to big CPUs (smoother ui experience)</li>
+<li>Affine Wi-Fi components to big CPUs (lowered latency)</li>
+<li>Affine ubound workqueues to little CPUs (lowered power consumption)</li>
+<li>Perform PID map reads on the little CPU cluster (lowered power consumption)</li>
+<li>Run nocb kthreads on little CPUs (lowered power consumptio)</li>
+<li>Free dead tasks asynchronously in finish_task_switch() (reduce resource wastage)</li>
+<li>Affine Samsung’s HyPer HAL to the big CPU cluster (quicker system boosting)</li>
+<li>Hide magisk mounts for IsolatedService (Prevent magisk detection)</li>
+<li>Updates to</li>
+<li>Drop top-app level to 3</li>
+<li>Improvements to boeffla Wakelock blocker</li>
+<li>Add support for Gentle_fair_sleepers</li>
+<li>Improvements to rcu</li>
+<li>Improvements to zram module</li>
+<li>Slightly faster booting</li>
+<li>Add state notifier driver (works in conjuction with PowerSuspend)</li>
+<li>Enable per-process reclaim</li>
+<li>Upstream to 4.14.140</li>
+</ul>
+<details>
+<summary>
+R5-noboost:
+</summary>
+<p>
+<ul>
+<li>
+Merge <code>boost</code> and <code>noboost</code> into one
+</li>
+<li>
+Bring in some fixes to samsung drivers
+</li>
+<li>
+Add support for Dynamic SchedTune Boost
+</li>
+<li>
+Add support for dynamic prefer_idle
+</li>
+<li>
+Stub out debug prints by default (Graphics perf improvement)
+</li>
+<li>
+Reserve caches for small, high-frequency memory allocations (Reduce latency)
+</li>
+<li>
+Use power efficient workingqueues for drm (Battery life improvement)
+</li>
+<li>
+Use power efficient workingqueues for block (Battery life improvement)
+</li>
+<li>
+Minimize number of tasks to load balance
+</li>
+<li>
+Add Srandom (5 times faster than urandom)
+</li>
+<li>
+Resolve sched_feat() at compile time to improve code optimization (Perf improvement)
+</li>
+<li>
+Upstream to Linux 4.14.124
+</li>
+<li>
+only force UX tasks to big cores (Power saving)
+</li>
+<li>
+Disable UFS debugging (IO perf improvement)
+</li>
+<li>
+Use SCHED_RR in place of SCHED_FIFO for all users (UX improvement)
+</li>
+<li>
+Change default SCHED_RR timeslice from 100 ms to 1 jiffy (Lowered latency)
+</li>
+<li>
+Make zsmalloc copy rather than mapping pages (Memory perf improvement)
+</li>
+<li>
+Disable Selinux audit
+</li>
+<li>
+Don’t dynamically allocate single-use structs (Reduce overhead)
+</li>
+<li>
+Avoid dynamic memory allocation for small write buffers (Reduce overhead)
+</li>
+<li>
+Avoid dynamically allocating memory in getxattr (Perf improvement)
+</li>
+<li>
+Schedule workers on CPU0 or 0-5 by default (Power saving)
+</li>
+<li>
+Fix memory leak for uncached firmware requests
+</li>
+<li>
+Speed up cache entry creation (Reduce overhead)
+</li>
+<li>
+Avoid dynamic allocations in sel_write_access (Perf improvement)
+</li>
+<li>
+Avoid dynamic memory allocation for INITCONTEXTLEN buffers (Reduce overhead)
+</li>
+<li>
+Use kmem_cache pool for struct dma_buf_attachment, dmabuf allocations, struct sync_file, sdcardfs_file_info, cgrp_cset_link, kernfs_open_node/file, async_entry (Reduce overhead)
+</li>
+<li>
+Always compile core debugfs driver for Android kernels
+</li>
+<li>
+Avoid allocating small buffers for map keys and values (Reduce overhead)
+</li>
+<li>
+Start killing wakelocks after one minute of idle (Power saving)
+</li>
+<li>
+Expedite garbage collection if idle (Power saving)
+</li>
+<li>
+Add a timeout to wakelocks globally
+</li>
+<li>
+Reduce QoS boosting from Samsung hacks (Power saving)
+</li>
+<li>
+Disable full refcount validation (Perf improvement)
+</li>
+<li>
+Micro-optimize PID map reads for arm64 while retaining output format (Help with games like genshin impact)
+</li>
+<li>
+Stop kswapd early when nothing’s waiting for it to free pages
+</li>
+<li>
+Don’t stop kswapd on a per-node basis when there are no waiters
+</li>
+<li>
+Move frequently used functions to headers and declare them inline (Reduce overhead)
+</li>
+<li>
+Don’t hog RCU read lock while optimistically spinning
+</li>
+<li>
+Use interruptible wait for genirq, media v4l (Reduce latency)
+</li>
+<li>
+Increase watermark scale factor
+</li>
+<li>
+Update LZ4 components
+</li>
+<li>
+Reduce latency while processing atomic ioctls (Reduce display rendering latency)
+</li>
+<li>
+Drop top-app level to 2
+</li>
+</ul>
+</p>
+</details>
+<details>
+<summary>
+R4-noboost:
+</summary>
+<p>
+<ul>
+<li>
+Introduce SchedTune Assist (500% improvement in User experience at minimal cost of battery life)
+</li>
+<li>
+Increase the time a task is considered cache-hot (Performance gain)
+</li>
+<li>
+Queue requests on their origin CPU (20%-40% gain in some scenarios)
+</li>
+<li>
+Do not give sleepers 50% more runtime
+</li>
+<li>
+Do not wake idle CPUs to queue same-origin requests (noticeable battery life improvement)
+</li>
+<li>
+Do not use IPIs for remote wakeups if idle
+</li>
+<li>
+Allow aggressive remote task interruptions
+</li>
+<li>
+Do not collect I/O statistics
+</li>
+<li>
+Don’t allow userspace to impose restrictions on CPU idle levels (No more random performance drops)
+</li>
+<li>
+Implement optimised checksum routine (Peformance gain)
+</li>
+<li>
+Network Stack optimizations
+</li>
+<li>
+Don’t hog RCU read lock while optimistically spinning
+</li>
+<li>
+Speed up ioctl by omitting debug names (overall graphics performance boost)
+</li>
+<li>
+optimized memcpy (Performance gain)
+</li>
+<li>
+optimized memmove (Performance gain)
+</li>
+<li>
+optimized memset (Performance gain)
+</li>
+<li>
+Enable BPF JIT (Faster settings activities launch)
+</li>
+<li>
+Update default wakelock block list (Better battery life)
+</li>
+<li>
+Enable wireguard (add wireguard support for those who might need it)
+</li>
+</ul>
+</p>
+</details>
+<details>
+<summary>
+R4-boost:
+</summary>
+<p>
+<ul>
+<li>
+Don’t allow userspace to impose restrictions on CPU idle levels (No more random performance drops)
+</li>
+<li>
+Implement optimised checksum routine (Peformance gain)
+</li>
+<li>
+Network Stack optimizations
+</li>
+<li>
+Don’t hog RCU read lock while optimistically spinning
+</li>
+<li>
+Speed up ioctl by omitting debug names (overall graphics performance boost)
+</li>
+<li>
+optimized memcpy (Performance gain)
+</li>
+<li>
+optimized memmove (Performance gain)
+</li>
+<li>
+optimized memset (Performance gain)
+</li>
+<li>
+Enable BPF JIT (Faster settings activities launch)
+</li>
+<li>
+Update default wakelock block list (Better battery life)
+</li>
+<li>
+update boost freq (less heating)
+</li>
+<li>
+Change default SCHED_RR timeslice from 100 ms to 1 jiffy
+</li>
+<li>
+Use SCHED_RR in place of SCHED_FIFO for all users (lowered latency)
+</li>
+<li>
+Micro-optimize PID map reads for arm64 while retaining output format (Should help with certain big games)
+</li>
+<li>
+Free dead tasks asynchronously in finish_task_switch() (Performance gain)
+</li>
+<li>
+Avoid allocating small buffers for map keys and values
+</li>
+<li>
+Avoid dynamic memory allocation for small write buffers (avoid overhead)
+</li>
+<li>
+Reduce latency while processing atomic ioctls (lowered latency)
+</li>
+<li>
+Enable wireguard (add wireguard support for those who might need it)
+</li>
+</ul>
+</p>
+</details>
+<details>
+<summary>
+R3:
+</summary>
+<p>
+<ul>
+<li>
+drop Schedtune assist
+</li>
+<li>
+drop dsboost
+</li>
+<li>
+revert undervolting
+</li>
+<li>
+set timer 300hz
+</li>
+<li>
+Boost DDR bus for a short amount of time when zygote forks (faster app launches)
+</li>
+<li>
+Use -O3 optimization (slight performance improvement)
+</li>
+<li>
+branch optimization in free slowpath
+</li>
+<li>
+Align file struct to 8 bytes
+</li>
+<li>
+disable crc checks (30% IO speed improvement)
+</li>
+<li>
+optimize modulo operation
+</li>
+<li>
+set initial TCP window size to 64K (speed improvement)
+</li>
+<li>
+use power efficient workingqueues
+</li>
+<li>
+add NEON accelerated XOR implementation
+</li>
+<li>
+set dirty ratio to 40%
+</li>
+<li>
+Increase vmstat interval
+</li>
+<li>
+swap pages one at a time (help with extreme memory pressure scenarios)
+</li>
+</ul>
+</p>
+</details>
+<details>
+<summary>
+R2:
+</summary>
+<p>
+<ul>
+<li>
+Fix error “There’s an internal problem with your system”
+</li>
+<li>
+Enable Write Back Caching (improve flash storage lifespan)
+</li>
+<li>
+Don’t fail on wakeup (do not let userspace abuse alarmtimers)
+</li>
+<li>
+Reduce the opportunity for sleepers to preempt (reduce jitter)
+</li>
+<li>
+Enable I/O throttling (reduce latency)
+</li>
+<li>
+Introduce SchedTune Assist (faster app launches and power efficiency)
+</li>
+<li>
+Introduce DSBoost driver(smoother experience and lowered jank)
+</li>
+<li>
+Introduce devfreq boost driver (butter smooth UI experience, no frame-drops)
+</li>
+<li>
+Optimized Console FrameBuffer for upto 70% increase in Performance
+</li>
+<li>
+Boost DDR bus upon running an atomic ioctl (prevent any and all framedrops)
+</li>
+<li>
+increase limit on sched-tune boost groups
+</li>
+<li>
+Undervolt the whole soc (lowered power usage)
+</li>
+<li>
+Process new forks before processing their parent (improve app launch speed)
+</li>
+<li>
+apply boost before frames are updated
+</li>
+<li>
+enable westwood (lowered network latency and better speeds)
+</li>
+<li>
+Prefer to reclaim inode and dentry cache over pagecache
+</li>
+<li>
+Increase ratelimit pages value (reduce overhead)
+</li>
+</ul>
+</p>
+</details>
+<details>
+<summary>
+R1:
+</summary>
+<p>
+<ul>
+<li>
+Tweak cpuidle governor to enter deep C state faster(better battery life)
+</li>
+<li>
+set frequency of kernel interrupt to 100hz(noticeable battery life improvement)
+</li>
+<li>
+Add boeffla Wakelock blocker
+</li>
+<li>
+Disable debugging in binder(lowered latency)
+</li>
+<li>
+Improve 3x faster integer sqrt
+</li>
+<li>
+disable IO_STAT completely(IO speed improvement)
+</li>
+<li>
+ARM64 targeted optimizations
+</li>
+<li>
+Make workqueue high priority(Decrease delays under pressure)
+</li>
+<li>
+cacheline alignment(Performance benefit)
+</li>
+<li>
+Don’t let google crap run in the background(batter battery life)
+</li>
+<li>
+Make zsmalloc copy rather than mapping pages(performance improvement)
+</li>
+<li>
+Disable audit
+</li>
+<li>
+Disable auditing for selinux
+</li>
+</ul>
+</p>
+</details>
+</details>
+<hr>
+<h3 id="flashing-intstrcutions">Flashing intstrcutions <a name="instructions"></a></h3>
+<ul>
+<li>Flash <code>Disable-userspace-slmk</code> module using magisk manager</li>
+<li>Reboot to recovery</li>
+<li>Flash the kernel</li>
+<li>Enjoy</li>
+</ul>
+<h3 id="downlods">Downlods <a name="downloads"></a></h3>
+<ul>
+<li><strong>TheCosmicStaff-R6-M21</strong> - <a href="https://github.com/Dark-Matter7232/The-Cosmic-Staff/releases/download/R6/CosmicStaff-ONEUI-R6-M21.zip">Download</a></li>
+<li><strong>Disable-userspace-slmk</strong> - <a href="https://github.com/Dark-Matter7232/The-Cosmic-Staff/releases/download/R6/Disable-userspace-slmk.zip">Download</a></li>
+</ul>
+<h3 id="sources">Sources <a name="sources"></a></h3>
+<ul>
+<li><strong>Kernel source</strong> - <a href="https://github.com/Dark-Matter7232/The-Cosmic-Staff">Click here</a></li>
+</ul>
+<h4 id="note">Note <a name="notes"></a></h4>
+<p><strong>I built it for my personal use only, my goals were to achieve better efficiency and not performance</strong></p>
+<p id="lastUpdated-css">
+Updated on <span id="lastUpdated"></span>
+</p>
+<hr>
+<script src="https://utteranc.es/client.js"
+        repo="Dark-Matter7232/Dark-Matter7232.github.io"
+        issue-term="pathname"
+        theme="github-dark-orange"
+        crossorigin="anonymous"
+        async>
+</script>
+</article>
+
+<script>
+  document.getElementById("lastUpdated").innerHTML = document.lastModified;
+</script>
+
+<footer>
+  <hr>
+  <i class="far fa-copyright fa-fw"></i>2020-2022 Const | Made with ❤ in India</p>
+</footer>
+</body>
