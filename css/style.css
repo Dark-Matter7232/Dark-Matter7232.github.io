@@ -6,6 +6,7 @@
 :root {
   --accent-color: #f66;
   --background:   #282a36;
+  --link-color:   #ff4d4d;
   --foreground:   rgb(255,255,255);
 }
 
@@ -29,7 +30,8 @@ align: center;
 }
 
 a {
-color:var(--accent-color);
+color:var(--link-color);
+text-decoration:none;
 }
 
 /* a:visited { */
@@ -38,7 +40,7 @@ color:var(--accent-color);
 
 a:hover {
   color: var(--background);
-  background-color:var(--accent-color);
+  background-color:var(--link-color);
   cursor:pointer;
 }
 
