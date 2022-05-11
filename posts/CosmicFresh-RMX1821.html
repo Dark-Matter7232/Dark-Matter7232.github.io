@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" type="image/png" href="/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <script src="https://kit.fontawesome.com/6973571aae.js" crossorigin="anonymous"></script>
+  <title>Const Coccinelle</title>
+<meta property="og:title" content="CosmicFresh-RMX1821 Kernel" />
+      <meta property="og:description" content="Custom kernel for RMX1821." />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content="/posts/CosmicFresh-RMX1821" />
+      <meta property="og:image" content="https://const.eu.org/CosmicFresh.jpg" />
+
+</head>
+
+<h1 class="main-header">Const Coccinelle</h1>
+<nav>
+  <a href="/index"> <i class="fa-solid fa-user-astronaut"></i> Home</a>
+  <a href="/about"> <i class="fa-solid fa-qrcode"></i> About</a>
+  <a href="https://p.const.eu.org"> <i class="fa-solid fa-paste"></i> Paste</a>
+  <a href="/archive"> <i class="fa-solid fa-box-archive"></i> Archive</a>
+  <a href="/uses"> <i class="fa-solid fa-microchip"></i> Uses</a>
+</nav>
+
+<article>
+<center>
+<img src="../img/CosmicFresh.png" style="border: 0px">
+</center>
+<center>
+<strong>CosmicFresh kernel for RMX1821 devices running A11 and above</strong>
+</center>
+<details>
+<summary>
+CONTENTS
+</summary>
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#changelog">Changelog</a></li>
+<li><a href="#instructions">Flashing instructions</a></li>
+<li><a href="#downloads">Downlod links</a></li>
+<li><a href="#sources">Source code</a></li>
+</ul>
+</details>
+<h2 id="features">/ Features / <a name="features"></a></h2>
+<p>Supports Realme 3/3i devices<br />
+Debug cruft nuked to reduce overall overhead<br />
+Using zram backported from mainline:</p>
+<ul>
+<li>Backported zram deduplication to reduce mem usage</li>
+<li>Backported zsmalloc memory allocator from mainline</li>
+<li>Backported zswap changes from mainline</li>
+<li>Zram now writebacks to offload idle pages to <code>EMMC</code></li>
+</ul>
+Uses Sultan’s Simple LMK<br />
+Touchscreen driver optimizations<br />
+Fingerprint driver optimizations<br />
+Power usage optimizations<br />
+Memory management optimizations<br />
+Uses SRandom for better perf<br />
+Westwood as the default TCP network congestion control<br />
+mmap/mremap improvements backported from mainline<br />
+Dropped mtk input booster in favour of <code>CIB</code><br />
+CGROUP and FREEZER_V2 backported from mainline<br />
+<code>FUSE_SHORTCIRCUIT</code> ported over from <code>oplus</code> for better io perf<br />
+vDSO 32 patches to improve 32-bit performance<br />
+GPU driver improvements backported from <code>GS101</code><br />
+Use 100hz ticker rate<br />
+Jump_label patchset ported from mainline<br />
+Affined important services to Big cluster.<br />
+
+<details>
+<summary>
+And more
+</summary>
+<p>Disabled <code>SECCOMP</code> to imrpove syscall speed<br />
+Nuked SElinux auditiing</p>
+</details>
+<h2 id="changelog">/ Changelog / <a name="changelog"></a></h2>
+<details>
+<summary>
+R1-Const:
+</summary>
+<p>
+<ul>
+<li>
+Initial build
+</li>
+</ul>
+</p>
+</details>
+<h3 id="flashing-instructions">Flashing instructions <a name="instructions"></a></h3>
+<ul>
+<li>Reboot to recovery</li>
+<li>Flash the kernel</li>
+<li>Enjoy</li>
+</ul>
+<h3 id="downloads">Downloads <a name="downloads"></a></h3>
+<ul>
+<li><strong>CosmicFresh-RMX1821-R1-Const</strong> - <a href="https://github.com/Dark-Matter7232/CosmicFresh-RMX1821/releases/download/R1-Const/CosmicFresh-RMX1821-R1-Const.zip">Download</a></li>
+</ul>
+<h3 id="sources">Sources <a name="sources"></a></h3>
+<ul>
+<li><strong>Kernel source</strong> - <a href="https://github.com/Dark-Matter7232/CosmicFresh-RMX1821">Click here</a></li>
+</ul>
+<p id="lastUpdated-css">
+Updated on <span id="lastUpdated"></span>
+</p>
+<hr>
+<script src="https://utteranc.es/client.js"
+        repo="Dark-Matter7232/Dark-Matter7232.github.io"
+        issue-term="pathname"
+        theme="github-dark-orange"
+        crossorigin="anonymous"
+        async>
+</script>
+</article>
+
+<script>
+  document.getElementById("lastUpdated").innerHTML = document.lastModified;
+</script>
+
+<footer>
+  <hr>
+  <i class="far fa-copyright fa-fw"></i>2020-2022 Const | Made with ❤ in India</p>
+</footer>
+</body>
