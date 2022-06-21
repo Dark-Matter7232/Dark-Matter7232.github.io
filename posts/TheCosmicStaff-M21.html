@@ -27,7 +27,8 @@
 </nav>
 
 <article>
-<h2 id="thecosmicstaff-kernel-for-m21">TheCosmicStaff Kernel For M21</h2>
+<h2 id="thecosmicstaff-kernel-for-m21">TheCosmicStaff Kernel For
+M21</h2>
 <center>
 <img src="https://raw.githubusercontent.com/Dark-Matter7232/Dark-Matter7232.github.io/v2/img/cosmic.jpg">
 </center>
@@ -102,12 +103,17 @@ CONTENTS
 <li>Affine hwcomposer to big CPUs (lowered jitter)</li>
 <li>Affine surfaceflinger to big CPUs (smoother ui experience)</li>
 <li>Affine Wi-Fi components to big CPUs (lowered latency)</li>
-<li>Affine ubound workqueues to little CPUs (lowered power consumption)</li>
-<li>Perform PID map reads on the little CPU cluster (lowered power consumption)</li>
+<li>Affine ubound workqueues to little CPUs (lowered power
+consumption)</li>
+<li>Perform PID map reads on the little CPU cluster (lowered power
+consumption)</li>
 <li>Run nocb kthreads on little CPUs (lowered power consumptio)</li>
-<li>Free dead tasks asynchronously in finish_task_switch() (reduce resource wastage)</li>
-<li>Affine Samsung’s HyPer HAL to the big CPU cluster (quicker system boosting)</li>
-<li>Hide magisk mounts for IsolatedService (Prevent magisk detection)</li>
+<li>Free dead tasks asynchronously in finish_task_switch() (reduce
+resource wastage)</li>
+<li>Affine Samsung’s HyPer HAL to the big CPU cluster (quicker system
+boosting)</li>
+<li>Hide magisk mounts for IsolatedService (Prevent magisk
+detection)</li>
 <li>Updates to</li>
 <li>Drop top-app level to 3</li>
 <li>Improvements to boeffla Wakelock blocker</li>
@@ -115,7 +121,8 @@ CONTENTS
 <li>Improvements to rcu</li>
 <li>Improvements to zram module</li>
 <li>Slightly faster booting</li>
-<li>Add state notifier driver (works in conjuction with PowerSuspend)</li>
+<li>Add state notifier driver (works in conjuction with
+PowerSuspend)</li>
 <li>Enable per-process reclaim</li>
 <li>Upstream to 4.14.140</li>
 </ul>
@@ -141,7 +148,8 @@ Add support for dynamic prefer_idle
 Stub out debug prints by default (Graphics perf improvement)
 </li>
 <li>
-Reserve caches for small, high-frequency memory allocations (Reduce latency)
+Reserve caches for small, high-frequency memory allocations (Reduce
+latency)
 </li>
 <li>
 Use power efficient workingqueues for drm (Battery life improvement)
@@ -156,7 +164,8 @@ Minimize number of tasks to load balance
 Add Srandom (5 times faster than urandom)
 </li>
 <li>
-Resolve sched_feat() at compile time to improve code optimization (Perf improvement)
+Resolve sched_feat() at compile time to improve code optimization (Perf
+improvement)
 </li>
 <li>
 Upstream to Linux 4.14.124
@@ -171,7 +180,8 @@ Disable UFS debugging (IO perf improvement)
 Use SCHED_RR in place of SCHED_FIFO for all users (UX improvement)
 </li>
 <li>
-Change default SCHED_RR timeslice from 100 ms to 1 jiffy (Lowered latency)
+Change default SCHED_RR timeslice from 100 ms to 1 jiffy (Lowered
+latency)
 </li>
 <li>
 Make zsmalloc copy rather than mapping pages (Memory perf improvement)
@@ -183,7 +193,8 @@ Disable Selinux audit
 Don’t dynamically allocate single-use structs (Reduce overhead)
 </li>
 <li>
-Avoid dynamic memory allocation for small write buffers (Reduce overhead)
+Avoid dynamic memory allocation for small write buffers (Reduce
+overhead)
 </li>
 <li>
 Avoid dynamically allocating memory in getxattr (Perf improvement)
@@ -201,10 +212,13 @@ Speed up cache entry creation (Reduce overhead)
 Avoid dynamic allocations in sel_write_access (Perf improvement)
 </li>
 <li>
-Avoid dynamic memory allocation for INITCONTEXTLEN buffers (Reduce overhead)
+Avoid dynamic memory allocation for INITCONTEXTLEN buffers (Reduce
+overhead)
 </li>
 <li>
-Use kmem_cache pool for struct dma_buf_attachment, dmabuf allocations, struct sync_file, sdcardfs_file_info, cgrp_cset_link, kernfs_open_node/file, async_entry (Reduce overhead)
+Use kmem_cache pool for struct dma_buf_attachment, dmabuf allocations,
+struct sync_file, sdcardfs_file_info, cgrp_cset_link,
+kernfs_open_node/file, async_entry (Reduce overhead)
 </li>
 <li>
 Always compile core debugfs driver for Android kernels
@@ -228,7 +242,8 @@ Reduce QoS boosting from Samsung hacks (Power saving)
 Disable full refcount validation (Perf improvement)
 </li>
 <li>
-Micro-optimize PID map reads for arm64 while retaining output format (Help with games like genshin impact)
+Micro-optimize PID map reads for arm64 while retaining output format
+(Help with games like genshin impact)
 </li>
 <li>
 Stop kswapd early when nothing’s waiting for it to free pages
@@ -237,7 +252,8 @@ Stop kswapd early when nothing’s waiting for it to free pages
 Don’t stop kswapd on a per-node basis when there are no waiters
 </li>
 <li>
-Move frequently used functions to headers and declare them inline (Reduce overhead)
+Move frequently used functions to headers and declare them inline
+(Reduce overhead)
 </li>
 <li>
 Don’t hog RCU read lock while optimistically spinning
@@ -252,7 +268,8 @@ Increase watermark scale factor
 Update LZ4 components
 </li>
 <li>
-Reduce latency while processing atomic ioctls (Reduce display rendering latency)
+Reduce latency while processing atomic ioctls (Reduce display rendering
+latency)
 </li>
 <li>
 Drop top-app level to 2
@@ -267,7 +284,8 @@ R4-noboost:
 <p>
 <ul>
 <li>
-Introduce SchedTune Assist (500% improvement in User experience at minimal cost of battery life)
+Introduce SchedTune Assist (500% improvement in User experience at
+minimal cost of battery life)
 </li>
 <li>
 Increase the time a task is considered cache-hot (Performance gain)
@@ -279,7 +297,8 @@ Queue requests on their origin CPU (20%-40% gain in some scenarios)
 Do not give sleepers 50% more runtime
 </li>
 <li>
-Do not wake idle CPUs to queue same-origin requests (noticeable battery life improvement)
+Do not wake idle CPUs to queue same-origin requests (noticeable battery
+life improvement)
 </li>
 <li>
 Do not use IPIs for remote wakeups if idle
@@ -291,7 +310,8 @@ Allow aggressive remote task interruptions
 Do not collect I/O statistics
 </li>
 <li>
-Don’t allow userspace to impose restrictions on CPU idle levels (No more random performance drops)
+Don’t allow userspace to impose restrictions on CPU idle levels (No more
+random performance drops)
 </li>
 <li>
 Implement optimised checksum routine (Peformance gain)
@@ -303,7 +323,8 @@ Network Stack optimizations
 Don’t hog RCU read lock while optimistically spinning
 </li>
 <li>
-Speed up ioctl by omitting debug names (overall graphics performance boost)
+Speed up ioctl by omitting debug names (overall graphics performance
+boost)
 </li>
 <li>
 optimized memcpy (Performance gain)
@@ -333,7 +354,8 @@ R4-boost:
 <p>
 <ul>
 <li>
-Don’t allow userspace to impose restrictions on CPU idle levels (No more random performance drops)
+Don’t allow userspace to impose restrictions on CPU idle levels (No more
+random performance drops)
 </li>
 <li>
 Implement optimised checksum routine (Peformance gain)
@@ -345,7 +367,8 @@ Network Stack optimizations
 Don’t hog RCU read lock while optimistically spinning
 </li>
 <li>
-Speed up ioctl by omitting debug names (overall graphics performance boost)
+Speed up ioctl by omitting debug names (overall graphics performance
+boost)
 </li>
 <li>
 optimized memcpy (Performance gain)
@@ -372,10 +395,12 @@ Change default SCHED_RR timeslice from 100 ms to 1 jiffy
 Use SCHED_RR in place of SCHED_FIFO for all users (lowered latency)
 </li>
 <li>
-Micro-optimize PID map reads for arm64 while retaining output format (Should help with certain big games)
+Micro-optimize PID map reads for arm64 while retaining output format
+(Should help with certain big games)
 </li>
 <li>
-Free dead tasks asynchronously in finish_task_switch() (Performance gain)
+Free dead tasks asynchronously in finish_task_switch() (Performance
+gain)
 </li>
 <li>
 Avoid allocating small buffers for map keys and values
@@ -411,7 +436,8 @@ revert undervolting
 set timer 300hz
 </li>
 <li>
-Boost DDR bus for a short amount of time when zygote forks (faster app launches)
+Boost DDR bus for a short amount of time when zygote forks (faster app
+launches)
 </li>
 <li>
 Use -O3 optimization (slight performance improvement)
@@ -477,13 +503,15 @@ Introduce SchedTune Assist (faster app launches and power efficiency)
 Introduce DSBoost driver(smoother experience and lowered jank)
 </li>
 <li>
-Introduce devfreq boost driver (butter smooth UI experience, no frame-drops)
+Introduce devfreq boost driver (butter smooth UI experience, no
+frame-drops)
 </li>
 <li>
 Optimized Console FrameBuffer for upto 70% increase in Performance
 </li>
 <li>
-Boost DDR bus upon running an atomic ioctl (prevent any and all framedrops)
+Boost DDR bus upon running an atomic ioctl (prevent any and all
+framedrops)
 </li>
 <li>
 increase limit on sched-tune boost groups
@@ -492,7 +520,8 @@ increase limit on sched-tune boost groups
 Undervolt the whole soc (lowered power usage)
 </li>
 <li>
-Process new forks before processing their parent (improve app launch speed)
+Process new forks before processing their parent (improve app launch
+speed)
 </li>
 <li>
 apply boost before frames are updated
@@ -519,7 +548,8 @@ R1:
 Tweak cpuidle governor to enter deep C state faster(better battery life)
 </li>
 <li>
-set frequency of kernel interrupt to 100hz(noticeable battery life improvement)
+set frequency of kernel interrupt to 100hz(noticeable battery life
+improvement)
 </li>
 <li>
 Add boeffla Wakelock blocker
@@ -559,24 +589,31 @@ Disable auditing for selinux
 </details>
 </details>
 <hr>
-<h3 id="flashing-instructions">Flashing instructions <a name="instructions"></a></h3>
+<h3 id="flashing-instructions">Flashing instructions
+<a name="instructions"></a></h3>
 <ul>
-<li>Flash <code>Disable-userspace-slmk</code> module using magisk manager</li>
+<li>Flash <code>Disable-userspace-slmk</code> module using magisk
+manager</li>
 <li>Reboot to recovery</li>
 <li>Flash the kernel</li>
 <li>Enjoy</li>
 </ul>
 <h3 id="downlods">Downlods <a name="downloads"></a></h3>
 <ul>
-<li><strong>TheCosmicStaff-R6-M21</strong> - <a href="https://github.com/Dark-Matter7232/The-Cosmic-Staff/releases/download/R6/CosmicStaff-ONEUI-R6-M21.zip">Download</a></li>
-<li><strong>Disable-userspace-slmk</strong> - <a href="https://github.com/Dark-Matter7232/The-Cosmic-Staff/releases/download/R6/Disable-userspace-slmk.zip">Download</a></li>
+<li><strong>TheCosmicStaff-R6-M21</strong> - <a
+href="https://github.com/Dark-Matter7232/The-Cosmic-Staff/releases/download/R6/CosmicStaff-ONEUI-R6-M21.zip">Download</a></li>
+<li><strong>Disable-userspace-slmk</strong> - <a
+href="https://github.com/Dark-Matter7232/The-Cosmic-Staff/releases/download/R6/Disable-userspace-slmk.zip">Download</a></li>
 </ul>
 <h3 id="sources">Sources <a name="sources"></a></h3>
 <ul>
-<li><strong>Kernel source</strong> - <a href="https://github.com/Dark-Matter7232/The-Cosmic-Staff">Click here</a></li>
+<li><strong>Kernel source</strong> - <a
+href="https://github.com/Dark-Matter7232/The-Cosmic-Staff">Click
+here</a></li>
 </ul>
 <h4 id="note">Note <a name="notes"></a></h4>
-<p><strong>I built it for my personal use only, my goals were to achieve better efficiency and not performance</strong></p>
+<p><strong>I built it for my personal use only, my goals were to achieve
+better efficiency and not performance</strong></p>
 <p id="lastUpdated-css">
 Updated on <span id="lastUpdated"></span>
 </p>
