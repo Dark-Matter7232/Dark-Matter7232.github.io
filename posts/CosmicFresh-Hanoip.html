@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" type="image/png" href="/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <script src="https://kit.fontawesome.com/6973571aae.js" crossorigin="anonymous"></script>
+  <title>Const Coccinelle</title>
+<meta property="og:title" content="CosmicFresh-Hanoip Kernel" />
+      <meta property="og:description" content="Custom kernel for Hanoip." />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content="/posts/CosmicFresh-Hanoip" />
+      <meta property="og:image" content="https://const.eu.org/CosmicFresh.jpg" />
+
+</head>
+
+<h1 class="main-header">Const Coccinelle</h1>
+<nav>
+  <a href="/index"> <i class="fa-solid fa-user-astronaut"></i> Home</a>
+  <a href="/about"> <i class="fa-solid fa-qrcode"></i> About</a>
+  <a href="https://p.const.eu.org"> <i class="fa-solid fa-paste"></i> Paste</a>
+  <a href="/archive"> <i class="fa-solid fa-box-archive"></i> Archive</a>
+  <a href="/uses"> <i class="fa-solid fa-microchip"></i> Uses</a>
+</nav>
+
+<article>
+<center>
+<img src="../img/CosmicFresh.png" style="border: 0px">
+</center>
+<center>
+<strong>A CAF rebased kernel for Moto G40 Fusion / G60</strong>
+</center>
+<details>
+<summary>
+CONTENTS
+</summary>
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#changelog">Changelog</a></li>
+<li><a href="#notice">Notice</a></li>
+<li><a href="#instructions">Flashing instructions</a></li>
+<li><a href="#downloads">Downlod links</a></li>
+<li><a href="#sources">Source code</a></li>
+</ul>
+</details>
+<h2 id="features">/ Features / <a name="features"></a></h2>
+<ul>
+<li><p>PureCAF base
+<code>v4.14.206 with LA.UM.9.1-11900-SMxxx0.0</code><br />
+</p></li>
+<li><p>Latest <code>upstream-f2fs-stable-linux-4.14.y</code>
+merged<br />
+</p></li>
+<li><p><code>QCACLD-3.0</code> + Audio-kernel + Data-kernel<br />
+</p></li>
+<li><p>Binder backported from <code>ack-android12-5.4</code><br />
+</p></li>
+<li><p>Selectively picked Sultan’s patches<br />
+</p></li>
+<li><p>Power usage optimizations<br />
+</p></li>
+<li><p>Memory management optimizations<br />
+</p></li>
+<li><p>Network stack optimizations<br />
+</p></li>
+<li><p>Scheduler optimizations<br />
+</p></li>
+<li><p>MGLRU Backported from mainline.</p>
+<p>TL;DR:</p>
+<blockquote>
+<p>According to Google’s fleetwide profiling, multi-generational LRU
+yields an<br />
+“overall 40% decrease in kswapd [the kernel daemon that manages
+virtual<br />
+memory] CPU usage,” an “85% decrease in the number of low-memory
+kills<br />
+at the 75th percentile,” and an “18% decrease in app launch times at the
+50th<br />
+percentile.”</p>
+</blockquote></li>
+<li><p>Optimized CPU freq table and energy model for improved battery
+life<br />
+</p></li>
+<li><p>RMNET extensions ported for improved network perf<br />
+</p></li>
+<li><p>UFS fixes ported from google<br />
+</p></li>
+<li><p>Latest exfat driver merged<br />
+</p></li>
+<li><p>Compiled with GCC 13 with DCE enabled</p></li>
+</ul>
+<details>
+<summary>
+And more
+</summary>
+<ul>
+<li>FUSE patches backported from mainline<br />
+</li>
+<li>eBPF patches backported from mainline<br />
+</li>
+<li>Latest CGROUP backported from mainline<br />
+</li>
+<li>vDSO 32 patches to improve 32-bit performance<br />
+</li>
+<li>Nuked debug cruft to reduce overhead kernel wide<br />
+</li>
+<li>Affined important services to Big cluster<br />
+</li>
+<li>Nuked useless wakelocks to improve idle drain</li>
+</ul>
+</details>
+<h2 id="changelog">/ Changelog / <a name="changelog"></a></h2>
+<summary>
+R1:
+</summary>
+<ul>
+<li>Initial build</li>
+</ul>
+<h3 id="notice">/ Notice / <a name="notice"></a></h3>
+<ul>
+<li>This kernel is an interactivity focused kenrel,<br />
+which implies that I am ready to sacrifice some throughput<br />
+for improved latency.</li>
+<li>This kernel is not meant to be customized by the user.</li>
+<li>Check your fingerprint sensor version before flashing the kernel.
+<ul>
+<li>Device info hw app -&gt; Fingerprint: if it shows FPC then flash
+FPC,<br />
+</li>
+<li>if it shows something else then flash CPO.</li>
+</ul></li>
+</ul>
+<h3 id="flashing-instructions">/ Flashing instructions /
+<a name="instructions"></a></h3>
+<ul>
+<li>Reboot to recovery</li>
+<li>Flash the the correct kernel build</li>
+<li>Enjoy</li>
+</ul>
+<h3 id="downloads">/ Downloads / <a name="downloads"></a></h3>
+<ul>
+<li><strong>CosmicFresh-hanoip-FPC-R1</strong> - <a
+href="https://github.com/Dark-Matter7232/CosmicFresh-Hanoip/releases/download/R1/CosmicFresh-hanoip-FPC-R1.zip">Download</a></li>
+<li><strong>CosmicFresh-hanoip-CPO-R1</strong> - <a
+href="https://github.com/Dark-Matter7232/CosmicFresh-Hanoip/releases/download/R1/CosmicFresh-hanoip-CPO-R1.zip">Download</a></li>
+</ul>
+<h3 id="sources">/ Sources / <a name="sources"></a></h3>
+<ul>
+<li><strong>Kernel source</strong> - <a
+href="https://github.com/Dark-Matter7232/CosmicFresh-Hanoip">Click
+here</a></li>
+</ul>
+<p id="lastUpdated-css">
+Updated on <span id="lastUpdated"></span>
+</p>
+<hr>
+<script src="https://utteranc.es/client.js"
+        repo="Dark-Matter7232/Dark-Matter7232.github.io"
+        issue-term="pathname"
+        theme="github-dark-orange"
+        crossorigin="anonymous"
+        async>
+</script>
+</article>
+
+<script>
+  document.getElementById("lastUpdated").innerHTML = document.lastModified;
+</script>
+
+<footer>
+  <hr>
+  <i class="far fa-copyright fa-fw"></i>2020-2022 Const | Made with ❤ in India</p>
+</footer>
+</body>
