@@ -49,50 +49,35 @@ CONTENTS
 </details>
 <h2 id="features">/ Features / <a name="features"></a></h2>
 <ul>
-<li><p>PureCAF base
+<li>PureCAF base
 <code>v4.14.206 with LA.UM.9.1-11900-SMxxx0.0</code><br />
-</p></li>
-<li><p>Latest <code>upstream-f2fs-stable-linux-4.14.y</code>
-merged<br />
-</p></li>
-<li><p><code>QCACLD-3.0</code> + Audio-kernel + Data-kernel<br />
-</p></li>
-<li><p>Binder backported from <code>ack-android12-5.4</code><br />
-</p></li>
-<li><p>Selectively picked Sultan’s patches<br />
-</p></li>
-<li><p>Power usage optimizations<br />
-</p></li>
-<li><p>Memory management optimizations<br />
-</p></li>
-<li><p>Network stack optimizations<br />
-</p></li>
-<li><p>Scheduler optimizations<br />
-</p></li>
-<li><p>Optimized CPU freq table and energy model for improved battery
+</li>
+<li>Latest <code>upstream-f2fs-stable-linux-4.14.y</code> merged<br />
+</li>
+<li><code>QCACLD-3.0</code> + Audio-kernel + Data-kernel<br />
+</li>
+<li>Sultan’s SimpleLMK as the default lmk.<br />
+</li>
+<li>Selectively picked Sultan’s patches<br />
+</li>
+<li>Power usage optimizations<br />
+</li>
+<li>Memory management optimizations<br />
+</li>
+<li>Network stack optimizations<br />
+</li>
+<li>Scheduler optimizations<br />
+</li>
+<li>Optimized CPU freq table and energy model for improved battery
 life<br />
-</p></li>
-<li><p>RMNET extensions ported for improved network perf<br />
-</p></li>
-<li><p>UFS fixes ported from google<br />
-</p></li>
-<li><p>Latest exfat driver merged<br />
-</p></li>
-<li><p>Compiled with GCC 13 with DCE enabled<br />
-</p></li>
-<li><p>MGLRU Backported from mainline</p>
-<p>TL;DR:</p>
-<blockquote>
-<p>According to Google’s fleetwide profiling, multi-generational LRU
-yields an<br />
-“overall 40% decrease in kswapd [the kernel daemon that manages
-virtual<br />
-memory] CPU usage,” an “85% decrease in the number of low-memory
-kills<br />
-at the 75th percentile,” and an “18% decrease in app launch times at the
-50th<br />
-percentile.”</p>
-</blockquote></li>
+</li>
+<li>RMNET extensions ported for improved network perf<br />
+</li>
+<li>UFS fixes ported from google<br />
+</li>
+<li>Latest exfat driver merged<br />
+</li>
+<li>Compiled with GCC 13 with DCE enabled</li>
 </ul>
 <details>
 <summary>
@@ -111,16 +96,44 @@ And more
 </li>
 <li>Affined important services to Big cluster<br />
 </li>
-<li>Nuked useless wakelocks to improve idle drain</li>
+<li>Nuked useless wakelocks to improve idle drain<br />
+</li>
+<li>Support for KCAL</li>
 </ul>
 </details>
 <h2 id="changelog">/ Changelog / <a name="changelog"></a></h2>
 <summary>
-R1:
+R2:
 </summary>
 <ul>
-<li>Initial build</li>
+<li>Switch to SimpleLMK<br />
+</li>
+<li>Drop MGLRU<br />
+</li>
+<li>Drop A12 binder backport<br />
+</li>
+<li>Re-enable EDL mode<br />
+</li>
+<li>Optimize Network stack<br />
+</li>
+<li>Fix active drain issue<br />
+</li>
+<li>Drop CGROUP backports<br />
+</li>
+<li>Optimize memory management</li>
 </ul>
+<details>
+<summary>
+R1:
+</summary>
+<p>
+<ul>
+<li>
+Initial build
+</li>
+</ul>
+</p>
+</details>
 <h3 id="notice">/ Notice / <a name="notice"></a></h3>
 <ul>
 <li>This kernel is an interactivity focused one, which<br />
@@ -134,6 +147,7 @@ FPC,<br />
 </li>
 <li>if it shows something else then flash CPO.</li>
 </ul></li>
+<li>Flash correct build according to your fp sensor and ram size.</li>
 </ul>
 <h3 id="flashing-instructions">/ Flashing instructions /
 <a name="instructions"></a></h3>
@@ -144,10 +158,14 @@ FPC,<br />
 </ul>
 <h3 id="downloads">/ Downloads / <a name="downloads"></a></h3>
 <ul>
-<li><strong>CosmicFresh-hanoip-FPC-R1</strong> - <a
-href="https://github.com/Dark-Matter7232/CosmicFresh-Hanoip/releases/download/R1/CosmicFresh-hanoip-FPC-R1.zip">Download</a></li>
-<li><strong>CosmicFresh-hanoip-CPO-R1</strong> - <a
-href="https://github.com/Dark-Matter7232/CosmicFresh-Hanoip/releases/download/R1/CosmicFresh-hanoip-CPO-R1.zip">Download</a></li>
+<li><strong>CosmicFresh-R2-FPC-6GB</strong> - <a
+href="https://github.com/Dark-Matter7232/CosmicFresh-Hanoip/releases/download/R2/CosmicFresh-R2-FPC-6GB.zip">Download</a></li>
+<li><strong>CosmicFresh-R2-FPC-4GB</strong> - <a
+href="https://github.com/Dark-Matter7232/CosmicFresh-Hanoip/releases/download/R2/CosmicFresh-R2-FPC-4GB.zip">Download</a></li>
+<li><strong>CosmicFresh-R2-CPO-6GB</strong> - <a
+href="https://github.com/Dark-Matter7232/CosmicFresh-Hanoip/releases/download/R2/CosmicFresh-R2-CPO-6GB.zip">Download</a></li>
+<li><strong>CosmicFresh-R2-CPO-4GB</strong> - <a
+href="https://github.com/Dark-Matter7232/CosmicFresh-Hanoip/releases/download/R2/CosmicFresh-R2-CPO-4GB.zip">Download</a></li>
 </ul>
 <h3 id="sources">/ Sources / <a name="sources"></a></h3>
 <p><strong>Kernel source</strong> - <a
