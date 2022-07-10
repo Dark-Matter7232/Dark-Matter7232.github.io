@@ -60,7 +60,17 @@ CONTENTS
 </li>
 <li>Selectively picked Sultan’s patches<br />
 </li>
+<li>mmap/mremap backported from mainline<br />
+</li>
+<li>vmalloc backported from mainline<br />
+</li>
+<li>tlb backported from mainline<br />
+</li>
 <li>Power usage optimizations<br />
+</li>
+<li>smem/s2mp/rpmsg drivers backported from 5.4<br />
+</li>
+<li>Display power-saving tweaks<br />
 </li>
 <li>Memory management optimizations<br />
 </li>
@@ -98,10 +108,67 @@ And more
 </li>
 <li>Nuked useless wakelocks to improve idle drain<br />
 </li>
-<li>Support for KCAL</li>
+<li>Support for KCAL<br />
+</li>
+<li>Timer optimizations<br />
+</li>
+<li>Removed RTB(interrupt) logging<br />
+</li>
+<li>jump_label patches from upstream<br />
+</li>
+<li>rwsem backported from upstream<br />
+</li>
+<li>Latest arm routines<br />
+</li>
+<li>loop driver patches from upstream<br />
+</li>
+<li>futex and mutex backports<br />
+</li>
+<li>Selinux backports</li>
 </ul>
 </details>
 <h2 id="changelog">/ Changelog / <a name="changelog"></a></h2>
+<summary>
+R3:
+</summary>
+<ul>
+<li>mmap/mremap backported from mainline<br />
+</li>
+<li>vmalloc backported from mainline<br />
+</li>
+<li>tlb backported from mainline<br />
+</li>
+<li>Timer optimizations<br />
+</li>
+<li>Removed RTB(interrupt) logging<br />
+</li>
+<li>jump_label patches from upstream<br />
+</li>
+<li>Fixed a regression that hurt power usage<br />
+</li>
+<li>rwsem backported from upstream<br />
+</li>
+<li>Latest arm routines<br />
+</li>
+<li>loop driver patches from upstream<br />
+</li>
+<li>futex and mutex backports<br />
+</li>
+<li>Selinux backports<br />
+</li>
+<li>smem/s2mp/rpmsg backported from 5.4<br />
+</li>
+<li>Fixed a major source of idle drain<br />
+</li>
+<li>Improved syscall speed<br />
+</li>
+<li>Improved graphics performance<br />
+</li>
+<li>Improved system power usage<br />
+</li>
+<li>Improved overall system fluidity</li>
+</ul>
+<details>
 <summary>
 R2:
 </summary>
@@ -120,8 +187,12 @@ R2:
 </li>
 <li>Drop CGROUP backports<br />
 </li>
-<li>Optimize memory management</li>
+<li>Optimize memory management<br />
+</li>
+<li>Display power-saving tweaks<br />
+</li>
 </ul>
+</details>
 <details>
 <summary>
 R1:
@@ -158,14 +229,14 @@ FPC,<br />
 </ul>
 <h3 id="downloads">/ Downloads / <a name="downloads"></a></h3>
 <ul>
-<li><strong>CosmicFresh-R2-FPC-6GB</strong> - <a
-href="https://github.com/Dark-Matter7232/CosmicFresh-Hanoip/releases/download/R2/CosmicFresh-R2-FPC-6GB.zip">Download</a></li>
-<li><strong>CosmicFresh-R2-FPC-4GB</strong> - <a
-href="https://github.com/Dark-Matter7232/CosmicFresh-Hanoip/releases/download/R2/CosmicFresh-R2-FPC-4GB.zip">Download</a></li>
-<li><strong>CosmicFresh-R2-CPO-6GB</strong> - <a
-href="https://github.com/Dark-Matter7232/CosmicFresh-Hanoip/releases/download/R2/CosmicFresh-R2-CPO-6GB.zip">Download</a></li>
-<li><strong>CosmicFresh-R2-CPO-4GB</strong> - <a
-href="https://github.com/Dark-Matter7232/CosmicFresh-Hanoip/releases/download/R2/CosmicFresh-R2-CPO-4GB.zip">Download</a></li>
+<li><strong>CosmicFresh-R3-FPC-6GB</strong> - <a
+href="https://github.com/Dark-Matter7232/CosmicFresh-Hanoip/releases/download/R3/CosmicFresh-R3-FPC-6GB.zip">Download</a></li>
+<li><strong>CosmicFresh-R3-FPC-4GB</strong> - <a
+href="https://github.com/Dark-Matter7232/CosmicFresh-Hanoip/releases/download/R3/CosmicFresh-R3-FPC-4GB.zip">Download</a></li>
+<li><strong>CosmicFresh-R3-CPO-6GB</strong> - <a
+href="https://github.com/Dark-Matter7232/CosmicFresh-Hanoip/releases/download/R3/CosmicFresh-R3-CPO-6GB.zip">Download</a></li>
+<li><strong>CosmicFresh-R3-CPO-4GB</strong> - <a
+href="https://github.com/Dark-Matter7232/CosmicFresh-Hanoip/releases/download/R3/CosmicFresh-R3-CPO-4GB.zip">Download</a></li>
 </ul>
 <h3 id="sources">/ Sources / <a name="sources"></a></h3>
 <p><strong>Kernel source</strong> - <a
@@ -185,6 +256,8 @@ here</a></p>
 <li>Kdrag0n<br />
 </li>
 <li>Panchajanya1999<br />
+</li>
+<li>xNombre<br />
 </li>
 <li>cyberknight777 and some other wonderful people.</li>
 </ul>
