@@ -49,53 +49,66 @@ CONTENTS
 </details>
 <h2 id="features">/ Features / <a name="features"></a></h2>
 <ul>
-<li>PureCAF base
+<li><p>PureCAF base
 <code>v4.14.206 with LA.UM.9.1-11900-SMxxx0.0</code><br />
-</li>
-<li>Latest <code>upstream-f2fs-stable-linux-4.14.y</code> merged<br />
-</li>
-<li><code>QCACLD-3.0</code> + Audio-kernel + Data-kernel<br />
-</li>
-<li>Sultan’s SimpleLMK as the default lmk.<br />
-</li>
-<li>Selectively picked Sultan’s patches<br />
-</li>
-<li>mmap/mremap backported from mainline<br />
-</li>
-<li>vmalloc backported from mainline<br />
-</li>
-<li>tlb backported from mainline<br />
-</li>
-<li>Power usage optimizations<br />
-</li>
-<li>smem/s2mp/rpmsg drivers backported from 5.4<br />
-</li>
-<li>Display power-saving tweaks<br />
-</li>
-<li>Memory management optimizations<br />
-</li>
-<li>Network stack optimizations<br />
-</li>
-<li>Scheduler optimizations<br />
-</li>
-<li>Optimized CPU freq table and energy model for improved battery
-life<br />
-</li>
-<li>RMNET extensions ported for improved network perf<br />
-</li>
-<li>UFS fixes ported from google<br />
-</li>
-<li>Latest exfat driver merged<br />
-</li>
-<li>Compiled with GCC 13 with DCE enabled</li>
+</p></li>
+<li><p>Latest <code>upstream-f2fs-stable-linux-4.14.y</code>
+merged<br />
+</p></li>
+<li><p><code>QCACLD-3.0</code> + Audio-kernel + Data-kernel<br />
+</p></li>
+<li><p>Selectively picked Sultan’s patches<br />
+</p></li>
+<li><p>mmap/mremap backported from mainline<br />
+</p></li>
+<li><p>vmalloc backported from mainline<br />
+</p></li>
+<li><p>tlb backported from mainline<br />
+</p></li>
+<li><p>Power usage optimizations<br />
+</p></li>
+<li><p>Display power-saving tweaks<br />
+</p></li>
+<li><p>Memory management optimizations<br />
+</p></li>
+<li><p>Network stack optimizations<br />
+</p></li>
+<li><p>Scheduler optimizations<br />
+</p></li>
+<li><p>MGLRU Backported from mainline<br />
+TL;DR:</p>
+<blockquote>
+<p>According to Google’s fleetwide profiling, multi-generational LRU
+yields an<br />
+“overall 40% decrease in kswapd [the kernel daemon that manages virtual
+memory] CPU usage,” an “85% decrease in the number of low-memory kills
+at the 75th percentile,” and an “18% decrease in app launch times at the
+50th percentile.”</p>
+</blockquote></li>
+<li><p>Amazon’s Data Access MONitor Backported from mainline<br />
+</p></li>
+<li><p>Enabled Damon’s proactive reclaim feature<br />
+TL;DR:</p>
+<blockquote>
+<p>DAMON-based Reclamation (DAMON_RECLAIM) is a static kernel module
+that aimed to be used for proactive and lightweight reclamation under
+light memory pressure. It doesn’t aim to replace the LRU-list based
+page_granularity reclamation, but to be selectively used for different
+level of memory pressure and requirements.</p>
+</blockquote></li>
+<li><p>Multithreaded kswapd and affined to little cluster<br />
+</p></li>
+<li><p>UFS fixes ported from google<br />
+</p></li>
+<li><p>Latest exfat driver merged<br />
+</p></li>
+<li><p>Compiled with GCC 13 with DCE enabled</p></li>
 </ul>
 <details>
 <summary>
 And more
 </summary>
 <ul>
-<li>FUSE patches backported from mainline<br />
-</li>
 <li>eBPF patches backported from mainline<br />
 </li>
 <li>Latest CGROUP backported from mainline<br />
@@ -107,8 +120,6 @@ And more
 <li>Affined important services to Big cluster<br />
 </li>
 <li>Nuked useless wakelocks to improve idle drain<br />
-</li>
-<li>Support for KCAL<br />
 </li>
 <li>Timer optimizations<br />
 </li>
@@ -129,6 +140,38 @@ And more
 </details>
 <h2 id="changelog">/ Changelog / <a name="changelog"></a></h2>
 <summary>
+R4:
+</summary>
+<ul>
+<li>Complete rebase and rebuild</li>
+<li>Bring back mglru</li>
+<li>Backport Amazon’s Data Access MONitor</li>
+<li>Enable Damon’s proactive reclaim</li>
+<li>Multithreaded kswapd and affined it to little cluster</li>
+<li>Create 6 kswapd threads <a href="#fuckme">[1]</a></li>
+<li>Enable zram deduplication for additional ram savings<br />
+</li>
+<li>LZ4 decompression speed improvements<br />
+</li>
+<li>Drop oplus mm hacks</li>
+<li>Drop RMNET extensions as it affected active drain</li>
+<li>Drop ram variants</li>
+<li>Drop a lot of changes that regressed the kernel</li>
+<li>Drop efficient freqs for now</li>
+<li>Drop backported smem/s2mp/rpmsg drivers</li>
+<li>Drop SimpleLMK</li>
+<li>Drop FUSE_PASSTHROUGH for now</li>
+<li>Selectively pick sultan’s changes to kswapd</li>
+<li>Pick sultan’s fixes to vmpressure</li>
+</ul>
+<p>[1]: <a name="fuckme"></a></p>
+<blockquote>
+<p>We have already affined kswapd’s kthreads to the little cluster and
+since our little cluster has 6 cores, I thought it would be better for
+each core to have its own thread.</p>
+</blockquote>
+<details>
+<summary>
 R3A:
 </summary>
 <ul>
@@ -136,6 +179,7 @@ R3A:
 </li>
 <li>Linearize power drain</li>
 </ul>
+</details>
 <details>
 <summary>
 R3:
