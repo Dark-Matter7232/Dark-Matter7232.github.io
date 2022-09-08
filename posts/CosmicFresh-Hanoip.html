@@ -57,17 +57,11 @@ merged<br />
 </p></li>
 <li><p><code>QCACLD-3.0</code> + Audio-kernel + Data-kernel<br />
 </p></li>
+<li><p>Sultan’s SimpleLMK as the default lmk.<br />
+</p></li>
 <li><p>Selectively picked Sultan’s patches<br />
 </p></li>
-<li><p>mmap/mremap backported from mainline<br />
-</p></li>
-<li><p>vmalloc backported from mainline<br />
-</p></li>
-<li><p>tlb backported from mainline<br />
-</p></li>
 <li><p>Power usage optimizations<br />
-</p></li>
-<li><p>Display power-saving tweaks<br />
 </p></li>
 <li><p>Memory management optimizations<br />
 </p></li>
@@ -75,40 +69,34 @@ merged<br />
 </p></li>
 <li><p>Scheduler optimizations<br />
 </p></li>
-<li><p>MGLRU Backported from mainline<br />
-TL;DR:</p>
-<blockquote>
-<p>According to Google’s fleetwide profiling, multi-generational LRU
-yields an<br />
-“overall 40% decrease in kswapd [the kernel daemon that manages virtual
-memory] CPU usage,” an “85% decrease in the number of low-memory kills
-at the 75th percentile,” and an “18% decrease in app launch times at the
-50th percentile.”</p>
-</blockquote></li>
-<li><p>Amazon’s Data Access MONitor Backported from mainline<br />
+<li><p>Optimized CPU freq table and energy model for improved battery
+life<br />
 </p></li>
-<li><p>Enabled Damon’s proactive reclaim feature<br />
-TL;DR:</p>
-<blockquote>
-<p>DAMON-based Reclamation (DAMON_RECLAIM) is a static kernel module
-that aimed to be used for proactive and lightweight reclamation under
-light memory pressure. It doesn’t aim to replace the LRU-list based
-page_granularity reclamation, but to be selectively used for different
-level of memory pressure and requirements.</p>
-</blockquote></li>
-<li><p>Multithreaded kswapd and affined to little cluster<br />
+<li><p>RMNET extensions ported for improved network perf<br />
 </p></li>
 <li><p>UFS fixes ported from google<br />
 </p></li>
 <li><p>Latest exfat driver merged<br />
 </p></li>
-<li><p>Compiled with GCC 13 with DCE enabled</p></li>
+<li><p>Compiled with GCC 13 with DCE enabled<br />
+</p></li>
+<li><p>MGLRU Backported from mainline<br />
+TL;DR:</p>
+<blockquote>
+<p>According to Google’s fleetwide profiling, multi-generational LRU
+yields an “overall 40% decrease in kswapd [the kernel daemon that
+manages virtual memory] CPU usage,” an “85% decrease in the number of
+low-memory kills at the 75th percentile,” and an “18% decrease in app
+launch times at the 50th percentile.”</p>
+</blockquote></li>
 </ul>
 <details>
 <summary>
 And more
 </summary>
 <ul>
+<li>FUSE patches backported from mainline<br />
+</li>
 <li>eBPF patches backported from mainline<br />
 </li>
 <li>Latest CGROUP backported from mainline<br />
@@ -121,59 +109,66 @@ And more
 </li>
 <li>Nuked useless wakelocks to improve idle drain<br />
 </li>
-<li>Timer optimizations<br />
-</li>
-<li>Removed RTB(interrupt) logging<br />
-</li>
-<li>jump_label patches from upstream<br />
-</li>
-<li>rwsem backported from upstream<br />
-</li>
-<li>Latest arm routines<br />
-</li>
-<li>loop driver patches from upstream<br />
-</li>
-<li>futex and mutex backports<br />
-</li>
-<li>Selinux backports<br />
-</li>
-<li>Improvements to video recording bitrate</li>
+<li>Support for KCAL</li>
 </ul>
 </details>
 <h2 id="changelog">/ Changelog / <a name="changelog"></a></h2>
 <summary>
+R5:
+</summary>
+<ul>
+<li></li>
+</ul>
+<details>
+<summary>
 R4:
 </summary>
 <ul>
-<li>Complete rebase and rebuild</li>
-<li>Bring back mglru</li>
-<li>Backport Amazon’s Data Access MONitor</li>
-<li>Enable Damon’s proactive reclaim</li>
-<li>Multithreaded kswapd and affined it to little cluster</li>
-<li>Create 6 kswapd threads <a href="#fuckme">[1]</a></li>
+<li>Complete rebase and rebuild<br />
+</li>
+<li>Bring back mglru<br />
+</li>
+<li>Backport Amazon’s Data Access MONitor<br />
+</li>
+<li>Enable Damon’s proactive reclaim<br />
+</li>
+<li>Multithreaded kswapd and affined it to little cluster<br />
+</li>
+<li>Create 6 kswapd threads <a href="#fuckme">[1]</a><br />
+</li>
 <li>Enable zram deduplication for additional ram savings<br />
+</li>
+<li>Drop oplus mm hacks<br />
 </li>
 <li>LZ4 decompression speed improvements<br />
 </li>
 <li>Improvements to video recording bitrate<br />
 </li>
-<li>Drop oplus mm hacks</li>
-<li>Drop RMNET extensions as it affected active drain</li>
-<li>Drop ram variants</li>
-<li>Drop a lot of changes that regressed the kernel</li>
-<li>Drop efficient freqs for now</li>
-<li>Drop backported smem/s2mp/rpmsg drivers</li>
-<li>Drop SimpleLMK</li>
-<li>Drop FUSE_PASSTHROUGH for now</li>
-<li>Selectively pick sultan’s changes to kswapd</li>
-<li>Pick sultan’s fixes to vmpressure</li>
+<li>Drop RMNET extensions as it affected active drain<br />
+</li>
+<li>Drop ram variants<br />
+</li>
+<li>Drop a lot of changes that regressed the kernel<br />
+</li>
+<li>Drop efficient freqs for now<br />
+</li>
+<li>Drop backported smem/s2mp/rpmsg drivers<br />
+</li>
+<li>Drop SimpleLMK<br />
+</li>
+<li>Drop <code>FUSE_PASSTHROUGH</code> for now<br />
+</li>
+<li>Selectively pick sultan’s changes to kswapd<br />
+</li>
+<li>Pick sultan’s fixes to vmpressure<br />
+[1]: <a name="fuckme"></a></li>
 </ul>
-<p>[1]: <a name="fuckme"></a></p>
 <blockquote>
 <p>We have already affined kswapd’s kthreads to the little cluster and
 since our little cluster has 6 cores, I thought it would be better for
 each core to have its own thread.</p>
 </blockquote>
+</details>
 <details>
 <summary>
 R3A:
@@ -225,8 +220,7 @@ R3:
 </li>
 <li>Improved system power usage<br />
 </li>
-<li>Improved overall system fluidity<br />
-</li>
+<li>Improved overall system fluidity</li>
 </ul>
 </details>
 <details>
@@ -248,10 +242,7 @@ R2:
 </li>
 <li>Drop CGROUP backports<br />
 </li>
-<li>Optimize memory management<br />
-</li>
-<li>Display power-saving tweaks<br />
-</li>
+<li>Optimize memory management</li>
 </ul>
 </details>
 <details>
@@ -286,17 +277,18 @@ FPC,<br />
 <ul>
 <li>Reboot to recovery</li>
 <li>Flash the the correct kernel build</li>
-<li>Enjoy<br />
-</li>
-<li><strong>Join this telegram group for further support</strong> - <a
-href="https://telegram.me/CosmicFresh">telegram</a></li>
+<li>Enjoy</li>
 </ul>
 <h3 id="downloads">/ Downloads / <a name="downloads"></a></h3>
 <ul>
-<li><strong>CosmicFresh-R4-FPC</strong> - <a
-href="https://github.com/Dark-Matter7232/CosmicFresh-Hanoip/releases/download/R4/CosmicFresh-R4-FPC.zip">Download</a></li>
-<li><strong>CosmicFresh-R4-CPO</strong> - <a
-href="https://github.com/Dark-Matter7232/CosmicFresh-Hanoip/releases/download/R4/CosmicFresh-R4-CPO.zip">Download</a></li>
+<li><strong>CosmicFresh-R2-FPC-6GB</strong> - <a
+href="https://github.com/Dark-Matter7232/CosmicFresh-Hanoip/releases/download/R2/CosmicFresh-R2-FPC-6GB.zip">Download</a></li>
+<li><strong>CosmicFresh-R2-FPC-4GB</strong> - <a
+href="https://github.com/Dark-Matter7232/CosmicFresh-Hanoip/releases/download/R2/CosmicFresh-R2-FPC-4GB.zip">Download</a></li>
+<li><strong>CosmicFresh-R2-CPO-6GB</strong> - <a
+href="https://github.com/Dark-Matter7232/CosmicFresh-Hanoip/releases/download/R2/CosmicFresh-R2-CPO-6GB.zip">Download</a></li>
+<li><strong>CosmicFresh-R2-CPO-4GB</strong> - <a
+href="https://github.com/Dark-Matter7232/CosmicFresh-Hanoip/releases/download/R2/CosmicFresh-R2-CPO-4GB.zip">Download</a></li>
 </ul>
 <h3 id="sources">/ Sources / <a name="sources"></a></h3>
 <p><strong>Kernel source</strong> - <a
@@ -316,8 +308,6 @@ here</a></p>
 <li>Kdrag0n<br />
 </li>
 <li>Panchajanya1999<br />
-</li>
-<li>xNombre<br />
 </li>
 <li>cyberknight777 and some other wonderful people.</li>
 </ul>
